@@ -1,0 +1,115 @@
+/**---------------------default grid-----------------------**/
+.mini-grid .mini-grid-border
+{
+    border-color:#C1DAF0;
+    border-bottom-width: 0px;
+}
+.mini-grid-newRow
+{
+    background:#fff;
+}
+/**解决项目css中对于td样式的覆盖**/
+.mini-grid .mini-grid-header
+{
+    background:#E6F0FF;
+    font-weight: normal;
+}
+/**解决grid disabled时splitter显示为白色（IE8兼容模式）**/
+.mini-grid-splitter{
+	background:transparent;
+	filter: alpha(enabled=false);
+}
+.mini-grid .mini-grid-headerCell, .mini-grid .mini-grid-topRightCell, .mini-grid .mini-grid-header td
+{
+    background:#E6F0FF url(images_1/grid/space.jpg) repeat-x left top;
+    border-color:#C1DAF0;
+    border-bottom:#C1DAF0 1px solid;
+    border-right:#C1DAF0 1px solid;
+    border-left:none;
+    line-height:16px;
+    padding:3px 2px;
+    text-align: center;
+    font-weight: normal;
+}
+.mini-grid .mini-grid-cell, .mini-grid .mini-grid-body td
+{
+    border-color:#C1DAF0;
+    border-bottom-color:#C1DAF0;
+    border-right:#C1DAF0 1px solid;
+    border-left:none;
+    height:28px;/*ff高度*/height:26px\9;/*ie6,ie7,ie8高度*/
+    line-height:16px;
+    font-weight: normal;
+    padding:0 2px;
+}
+.mini-grid .mini-grid-footer
+{
+    border-top:solid 1px #C1DAF0;    
+    background:url(images/grid/footer.gif) repeat-x scroll left top #d4e2f1;
+}
+.mini-grid td.mini-grid-last-column
+{
+    border-right: 0;
+}
+
+.mini-grid .mini-grid-row-hover, .mini-grid .mini-grid-row-hover .mini-grid-frozenCell
+{
+    background:#FFF4C4;    
+}
+.mini-grid .mini-grid-row-selected, .mini-grid .mini-grid-row-selected .mini-grid-frozenCell
+{
+    background:#ffee9b;		
+}
+
+.mini-grid .tit:link,.mini-grid .tit:visited{ color:#0464BC; text-decoration:none; font-weight:bold;}
+.mini-grid .tit:hover{ color:#0464BC; text-decoration:underline; font-weight:bold;}
+.mini-grid-row-alt
+{
+    background:#F4F8FB url(images_1/grid/space.jpg) repeat-x left top;
+}
+.mini-grid-sortIcon{
+	vertical-align: middle;
+}
+/*---------------------------------------*/
+
+/*------------------- pager --------------------*/
+.mini-pager{
+	float:right;
+}
+/**解决鼠标操作后出现下划线问题**/
+.mini-pager a {text-decoration:none;}
+
+.mini-pager-left
+{
+	padding-top:0;
+    height:28px;
+    float:right;
+}
+.mini-pager-right{
+	line-height:30px;
+}
+.mini-pager-first
+{    
+    background:url(images/pager/first.gif) no-repeat;
+}
+.mini-pager-prev
+{
+    background-image:url(images/pager/prev.gif);
+}
+.mini-pager-next
+{
+    background-image:url(images/pager/next.gif);
+}
+.mini-pager-last
+{
+    background-image:url(images/pager/last.gif);
+}
+.mini-pager-num
+{    
+	border:1px solid #B3C8E8;
+}
+body .mini-pager .mini-buttonedit .mini-buttonedit-border
+{
+    border-color:#B3C8E8;
+}
+/*---------------------------------------*/

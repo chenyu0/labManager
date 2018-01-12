@@ -1,0 +1,39 @@
+.mini-textbox {
+	height:27px;
+	
+}
+.mini-textbox-border {
+	height:25px;
+}
+.mini-textbox-input {
+	line-height:25px;
+	height:25px;
+}
+.mini-buttonedit
+{
+    height:27px;
+
+}
+.mini-buttonedit-border{
+	 height:25px;
+}
+.mini-buttonedit-input{
+	line-height:25px;
+	height:25px;
+}
+.mini-buttonedit-button, .mini-buttonedit-close{
+	height: 21px;
+	width: 21px;
+}
+
+.mini-datepicker .mini-buttonedit-icon {
+background: url(images/datepicker/date.png) no-repeat 50% 4px;
+}
+.mini-buttonedit-icon {
+width: 21px;
+height: 21px;
+
+}
+.mini-popupedit .mini-buttonedit-icon {
+background: url(images/buttonedit/icon3.png) no-repeat 2px 2px;
+}

@@ -1,10 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>登陆</title>
+    <link type="text/css" rel="stylesheet" href="../static/css/login.css">
+    <script type="text/javascript">
+        //iframe 出现登陆页面解决方法
+        if(top!=window){
+            top.location.href = window.location.href;
+        }
+        //    debugger;
+        //    if (!window.opener || window.opener!='login'&&window.name!='EIS')
+        //    {
+        //        window.opener = 'login';
+        //        var feature = 'FullScreen=yes,scrollbars=no,menubar=no,resizable=no,location=no,status=no,toolbar=no';
+        //        var win = window.open('login.html','EIS',feature);
+        //        win.resizeTo(screen.width,screen.height);
+        //        win.moveTo(0,0);
+        //        window.close();
+        //    }
+    </script>
 </head>
-<body>
-<h1>Login page</h1>
+<body style="overflow:hidden" >
+<div class="pagewrap">
+    <div class="main">
+        <div class="background_div"></div>
+        <div class="content" >
+            <div class="con_right" >
+                <div id="con_right" style="height: 100%;">
+                    <div class="headLogo"><img src="../static/images/app_logo.png"/></div>
+                    <div class="con_r_top"><a href="javascript:;" class="right" style="color: rgb(51, 51, 51);">登录管理</a></div>
+                    <ul>
+                        <li class="con_r_right" style="display: block;">
+                            <div class="user">
+                                <div><span class="user-icon"></span>
+                                    <input type="text" id="username"  placeholder="　请输入纳税人识别号" onblur="login.checkZh()">
+                                    <br/><span style="color:red" id="errorZh"></span>
+                                </div>
+
+                                <div><span class="mima-icon"></span>
+                                    <input type="password" id="password" placeholder="　请输入密码"   onblur="login.checkMm()">
+                                    <br/><span style="color:red" id="errorMm"></span>
+                                </div>
+
+                                <div><span class="yzmz-icon"></span>
+                                    <input  type="text" id="yzcode"  placeholder="　验证码"  style=" width:150px;" onblur="login.checkYzm()">
+
+
+                                    <img style="cursor: pointer;margin-left: 6%" alt="看不清？点击更换" id="yzImg" src="/codeGenerater" onclick="login.change()">
+                                    <br/><span style="color:red" id="errorYzm"></span>　
+
+
+                                </div>
+
+                            </div><br>
+                            <button id="btn_Login" onclick="login.checkLogin()">登 录</button>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
+<script type="text/javascript" src="../static/js/common/jquery.js"></script>
+<script type="text/javascript" src="../static/js/common/miniui/miniui.js"></script>
+<script type="text/javascript" src="../static/js/common//base.js"></script>
+<script type="text/javascript" src="login.js"></script>
 </html>

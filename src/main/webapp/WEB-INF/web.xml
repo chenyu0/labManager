@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <display-name>LabManager</display-name>
-    <description>LabManager_Alpha_0.0.1</description>
+    <display-name>lab</display-name>
+    <description>lab_Alpha_0.0.1</description>
 
     <!-- 编码过滤器 -->
     <filter>
@@ -46,6 +46,15 @@
         <servlet-name>SpringMVC</servlet-name>
         <!-- 匹配所有请求，此处也可以配置成 *.do 形式 -->
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>codeGenerater</servlet-name>
+        <servlet-class>cn.com.lab.generater.CodeGenerater</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>codeGenerater</servlet-name>
+        <url-pattern>/codeGenerater</url-pattern>
     </servlet-mapping>
 
     <filter>
