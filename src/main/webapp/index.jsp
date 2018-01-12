@@ -1,3 +1,3 @@
 <script type="text/javascript">
-    location.href = "/stmsys/index.html";
+    location.href = "/pages/login.html";
 </script>
