@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="stmsys:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="stmsys.war">
-      <element id="artifact" artifact-name="stmsys:war exploded" />
-    </root>
-  </artifact>
-</component>
