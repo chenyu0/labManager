@@ -34,7 +34,7 @@ button { border: none; }
 .content .con_left { float: left; padding: 75pt 0 0 230px; width: 181px; }
 .content .con_left p { padding: 0 0 3px; width: 10pc; color: #040000; font-size: 1pc; font-family: "微软雅黑"; }
 .content .con_left a { padding: 0 0 0 2pc; color: #2f548e; text-decoration: underline; font-size: 1pc; font-family: "微软雅黑"; }
-.content .con_right { float: right; margin: 18% 0 0; width: 28pc; height: 460px; border: 1px solid #dedede; background: #fff; z-index: 99}
+.content .con_right { float: right; margin: 14% 0 0; width: 28pc; height: 460px; border: 1px solid #dedede; background: #fff; z-index: 99}
 .content .con_right .con_r_top { padding: 0 0 0 39px; width: 409px; height: 50px; }
 .content .con_right .con_r_top .left, .content .con_right .con_r_top .right { float: left; padding: 5px 0 0; width: 90%; height: 35px; text-align: center; text-decoration: none; font-size: 18px; font-family: "微软雅黑"; }
 .content .con_right ul .con_r_left .erweima { text-align: center; }

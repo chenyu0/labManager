@@ -1,5 +1,6 @@
 package cn.com.lab.filter;
 
+import cn.com.lab.model.UserLoginInfo;
 import cn.com.lab.utils.common.CookieUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -19,12 +19,12 @@
     checkMm: function () {
         login.password = $("#password").val();
 
-        var Reg = new RegExp(/^.{8,16}$/)
+        var Reg = new RegExp(/^.{4,16}$/);
         if (login.password == "") {
             $("#errorMm").html("密码不能为空！");
             return;
         } else if (!Reg.test(login.password)) {
-            $("#errorMm").html("密码长度在8-16位之间！");
+            $("#errorMm").html("密码长度在4-16位之间！");
             return;
         } else {
             $("#errorMm").html("");
@@ -33,7 +33,6 @@
     },
     checkYzm: function () {
         login.yzcode = $("#yzcode").val();
-
         if (login.yzcode == "") {
             $("#errorYzm").html("验证码不能为空！");
             return;
@@ -45,7 +44,7 @@
     checkLogin: function () {
         if (login.checkZh() && login.checkMm() && login.checkYzm()) {
 
-            var url = "/qhSqhdWeb/checkLogin";
+            var url = "/checkLogin";
             $.ajax({
                 url: url,
                 data: {
@@ -54,27 +53,40 @@
                     "yzcode": login.yzcode
                 },
                 type: "post",
+                acync:false,
                 dataType: "json",
                 beforeSend: function () {
-                    $("#con_right").mask('正在登陆中，请稍后。。。');
+                    login.transBtnStyle("0");
                 },
                 success: function (data) {
-                    $("#con_right").unmask();
                     if (data.error != undefined && data.error != "") {
+                        login.transBtnStyle("1");
                         alert(data.error);
                         login.change();
                     } else if (data.success == "1") {
-                        location.href = "../../pages/main.html";
+                        location.href = "/pages/main/main.html";
                     }
                 },
                 error: function (error) {
-                    $("#con_right").unmask();
-                    var error = JSON.parse(error.responseText);
-                    alert(error.error);
+                    login.transBtnStyle("1");
+                    alert("登录出错");
                     login.change();
                 }
             });
+
         }
+    },
+    transBtnStyle:function (ofType) {
+        debugger;
+      if("0" === ofType){
+          $("#btn_Login").attr("onclick","");
+          $("#btn_Login").css("background","#888888");
+          $("#btn_Login")[0].innerHTML="正在登录中,请稍后...";
+      }else{
+          $("#btn_Login").attr("onclick","login.checkLogin()");
+          $("#btn_Login").css("background","#2e558e");
+          $("#btn_Login")[0].innerHTML="登录";
+      }
     },
     change: function () {
         $("#yzImg").attr("src", "/codeGenerater?codeInfo=" + Math.random());
@@ -83,13 +95,3 @@
 $(document).ready(function () {
 
 });
-
-/*
-function setCenter(){
-    var windowH = $(window).height();
-    var windowW = $(window).width();
-    var actualH = (windowH-465)/2+"px";
-    var actualW = (windowW-450)/2+"px";
-    $(".content").css("top",actualH);
-    $(".content").css("left",actualW);
-}*/

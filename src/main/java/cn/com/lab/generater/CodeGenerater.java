@@ -1,5 +1,6 @@
 package cn.com.lab.generater;
 
+import cn.com.lab.global.StaticSetting;
 import cn.com.lab.utils.common.VerifyCodeUtils;
 import org.apache.log4j.Logger;
 
@@ -23,7 +24,7 @@ public class CodeGenerater extends HttpServlet {
         arg1.setHeader("Cache-Control", "no-cache");
         arg1.setHeader("Pragma", "no-cache");
         OutputStream os = arg1.getOutputStream();
-        String rightCode = VerifyCodeUtils.generateVerifyCode(5);
+        String rightCode = VerifyCodeUtils.generateVerifyCode(StaticSetting.CODDINGSIZE);
         if(logger.isDebugEnabled()){
             logger.debug("本次验证码为："+rightCode);
         }

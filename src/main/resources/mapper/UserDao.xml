@@ -4,8 +4,44 @@
 <!-- 设置为IUserDao接口方法提供sql语句配置 -->
 <mapper namespace="cn.com.lab.dao.IUserDao">
 
-    <select id="selectUser" resultType="User" parameterType="long">
-        SELECT * FROM user WHERE id = #{id}
+    <resultMap id="BaseResultMap" type="cn.com.lab.model.UserLoginInfo">
+        <id column="USERNAME" jdbcType="VARCHAR" property="username" />
+        <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+        <result column="COOKIE" jdbcType="VARCHAR" property="cookie" />
+    </resultMap>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from USER_LOGIN_INFO
+        where USERNAME = #{username,jdbcType=VARCHAR}
+    </delete>
+
+    <insert id="insert" parameterType="cn.com.lab.model.UserLoginInfo">
+        insert into USER_LOGIN_INFO (USERNAME, PASSWORD, COOKIE)
+        values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{cookie,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="cn.com.lab.model.UserLoginInfo">
+        update USER_LOGIN_INFO
+        set PASSWORD = #{password,jdbcType=VARCHAR},
+        COOKIE = #{cookie,jdbcType=VARCHAR}
+        where USERNAME = #{username,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select USERNAME, PASSWORD, COOKIE
+        from USER_LOGIN_INFO
+        where USERNAME = #{username,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select USERNAME, PASSWORD, COOKIE
+        from USER_LOGIN_INFO
+    </select>
+
+    <select id="checkLogin" resultMap="BaseResultMap">
+        select t.* from USER_LOGIN_INFO t
+        where t.USERNAME = #{username,jdbcType=VARCHAR}
+        and t.PASSWORD = #{password,jdbcType=VARCHAR}
     </select>
 
 </mapper>
