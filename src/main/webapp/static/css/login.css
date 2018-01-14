@@ -76,7 +76,7 @@ button {
 .headLogo {
     width: 450px;
     height: 116px;
-    background: url("../images/app_log.png")  no-repeat;
+    background: url("../images/app_logo.png")  no-repeat;
     background-size: cover;
 
 }
