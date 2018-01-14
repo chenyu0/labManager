@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.lab.dao.StudentMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.lab.model.Student" >
+    <id column="stu_id" property="stu_id" jdbcType="VARCHAR" />
+    <result column="stu_name" property="stu_name" jdbcType="VARCHAR" />
+    <result column="exp_id" property="exp_id" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="stu_desc" property="stu_desc" jdbcType="VARCHAR" />
+    <result column="stu_email" property="stu_email" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    stu_id, stu_name, exp_id, phone, stu_desc, stu_email
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where stu_id = #{stu_id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    stu_id, stu_name, exp_id, phone, stu_desc, stu_email
+    from student
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from student
+    where stu_id = #{stu_id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.lab.model.Student" >
+    insert into student (stu_id, stu_name, exp_id, 
+      phone, stu_desc, stu_email
+      )
+    values (#{stu_id,jdbcType=VARCHAR}, #{stu_name,jdbcType=VARCHAR}, #{exp_id,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{stu_desc,jdbcType=VARCHAR}, #{stu_email,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.lab.model.Student" >
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stu_id != null" >
+        stu_id,
+      </if>
+      <if test="stu_name != null" >
+        stu_name,
+      </if>
+      <if test="exp_id != null" >
+        exp_id,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="stu_desc != null" >
+        stu_desc,
+      </if>
+      <if test="stu_email != null" >
+        stu_email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stu_id != null" >
+        #{stu_id,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_name != null" >
+        #{stu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="exp_id != null" >
+        #{exp_id,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_desc != null" >
+        #{stu_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_email != null" >
+        #{stu_email,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.lab.model.Student" >
+    update student
+    <set >
+      <if test="stu_name != null" >
+        stu_name = #{stu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="exp_id != null" >
+        exp_id = #{exp_id,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_desc != null" >
+        stu_desc = #{stu_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="stu_email != null" >
+        stu_email = #{stu_email,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stu_id = #{stu_id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.lab.model.Student" >
+    update student
+    set stu_name = #{stu_name,jdbcType=VARCHAR},
+      exp_id = #{exp_id,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      stu_desc = #{stu_desc,jdbcType=VARCHAR},
+      stu_email = #{stu_email,jdbcType=VARCHAR}
+    where stu_id = #{stu_id,jdbcType=VARCHAR}
+  </update>
+</mapper>

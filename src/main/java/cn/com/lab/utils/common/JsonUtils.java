@@ -1,7 +1,10 @@
 package cn.com.lab.utils.common;
 
+import com.alibaba.fastjson.JSONArray;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 public class JsonUtils {
 
@@ -23,5 +26,22 @@ public class JsonUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 根据List获取到对应的JSONArray
+     * @param list
+     * @return
+     */
+    public static JSONArray getJSONArrayByList(List<?> list){
+        JSONArray jsonArray = new JSONArray();
+        if (list==null ||list.isEmpty()) {
+            return jsonArray;
+        }
+
+        for (Object object : list) {
+            jsonArray.add(object);
+        }
+        return jsonArray;
     }
 }

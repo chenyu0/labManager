@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.lab.dao.TzGgMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.lab.model.TzGg" >
+    <id column="tg_id" property="tg_id" jdbcType="VARCHAR" />
+    <result column="tg_name" property="tg_name" jdbcType="VARCHAR" />
+    <result column="tg_user" property="tg_user" jdbcType="VARCHAR" />
+    <result column="tg_date" property="tg_date" jdbcType="DATE" />
+    <result column="tg_content" property="tg_content" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tg_id, tg_name, tg_user, tg_date, tg_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tz_gg
+    where tg_id = #{tg_id,jdbcType=VARCHAR}
+  </select>
+
+    <select id="getAllTg" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        tg_id, tg_name, tg_user, tg_date, tg_content
+        from tz_gg
+    </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tz_gg
+    where tg_id = #{tg_id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.lab.model.TzGg" >
+    insert into tz_gg (tg_id, tg_name, tg_user, 
+      tg_date, tg_content)
+    values (#{tg_id,jdbcType=VARCHAR}, #{tg_name,jdbcType=VARCHAR}, #{tg_user,jdbcType=VARCHAR}, 
+      #{tg_date,jdbcType=DATE}, #{tg_content,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.lab.model.TzGg" >
+    insert into tz_gg
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tg_id != null" >
+        tg_id,
+      </if>
+      <if test="tg_name != null" >
+        tg_name,
+      </if>
+      <if test="tg_user != null" >
+        tg_user,
+      </if>
+      <if test="tg_date != null" >
+        tg_date,
+      </if>
+      <if test="tg_content != null" >
+        tg_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tg_id != null" >
+        #{tg_id,jdbcType=VARCHAR},
+      </if>
+      <if test="tg_name != null" >
+        #{tg_name,jdbcType=VARCHAR},
+      </if>
+      <if test="tg_user != null" >
+        #{tg_user,jdbcType=VARCHAR},
+      </if>
+      <if test="tg_date != null" >
+        #{tg_date,jdbcType=DATE},
+      </if>
+      <if test="tg_content != null" >
+        #{tg_content,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.lab.model.TzGg" >
+    update tz_gg
+    <set >
+      <if test="tg_name != null" >
+        tg_name = #{tg_name,jdbcType=VARCHAR},
+      </if>
+      <if test="tg_user != null" >
+        tg_user = #{tg_user,jdbcType=VARCHAR},
+      </if>
+      <if test="tg_date != null" >
+        tg_date = #{tg_date,jdbcType=DATE},
+      </if>
+      <if test="tg_content != null" >
+        tg_content = #{tg_content,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tg_id = #{tg_id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.lab.model.TzGg" >
+    update tz_gg
+    set tg_name = #{tg_name,jdbcType=VARCHAR},
+      tg_user = #{tg_user,jdbcType=VARCHAR},
+      tg_date = #{tg_date,jdbcType=DATE},
+      tg_content = #{tg_content,jdbcType=VARCHAR}
+    where tg_id = #{tg_id,jdbcType=VARCHAR}
+  </update>
+</mapper>

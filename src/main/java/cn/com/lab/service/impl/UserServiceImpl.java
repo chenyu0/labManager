@@ -1,7 +1,6 @@
 package cn.com.lab.service.impl;
 
 import cn.com.lab.dao.IUserDao;
-import cn.com.lab.model.User;
 import cn.com.lab.model.UserLoginInfo;
 import cn.com.lab.service.IUserService;
 import org.springframework.stereotype.Service;

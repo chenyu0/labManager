@@ -7,10 +7,10 @@
         var Reg = new RegExp(/^[a-zA-Z0-9_-]{4,20}$/);
         if (login.username == "") {
             $("#errorZh").html("账号不能为空！");
-            return;
+
         } else if (!Reg.test(login.username)) {
             $("#errorZh").html("账号输入有误，只允许字母数字下划线，且长度在4-20位！");
-            return;
+
         } else {
             $("#errorZh").html("");
             return true;
@@ -22,10 +22,10 @@
         var Reg = new RegExp(/^.{4,16}$/);
         if (login.password == "") {
             $("#errorMm").html("密码不能为空！");
-            return;
+
         } else if (!Reg.test(login.password)) {
             $("#errorMm").html("密码长度在4-16位之间！");
-            return;
+
         } else {
             $("#errorMm").html("");
             return true;
@@ -35,13 +35,15 @@
         login.yzcode = $("#yzcode").val();
         if (login.yzcode == "") {
             $("#errorYzm").html("验证码不能为空！");
-            return;
+
         } else {
             $("#errorYzm").html("");
             return true;
         }
     },
     checkLogin: function () {
+        $("username").val("admin");
+        $("password").val("1234");
         if (login.checkZh() && login.checkMm() && login.checkYzm()) {
 
             var url = "/checkLogin";
@@ -64,7 +66,7 @@
                         alert(data.error);
                         login.change();
                     } else if (data.success == "1") {
-                        location.href = "/pages/main/main.html";
+                        location.href = "/lab/index.html";
                     }
                 },
                 error: function (error) {
@@ -91,7 +93,7 @@
     change: function () {
         $("#yzImg").attr("src", "/codeGenerater?codeInfo=" + Math.random());
     }
-}
+};
 $(document).ready(function () {
 
 });

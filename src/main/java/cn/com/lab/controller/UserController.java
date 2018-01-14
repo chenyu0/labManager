@@ -54,7 +54,6 @@ public class UserController {
                 request.getSession().setAttribute("user", jsonObject);
                 CookieUtils.addCookie(response, cookie);
                 logger.debug("登陆成功！" + user.getUsername());
-                jsonObject.clear();
                 jsonObject.put("success", "1");
                 JsonUtils.outJson(response, jsonObject.toString());
             } else {
@@ -73,11 +72,11 @@ public class UserController {
         response.setContentType("text/xml;charset=utf-8");
 
         String cookie = CookieUtils.showCookieVal(request);
-        UserLoginInfo user = (UserLoginInfo) request.getSession().getAttribute("user");
-        if (cookie != null && user != null && user.getCookie().equals(cookie)) {
+        JSONObject user = (JSONObject) request.getSession().getAttribute("user");
+        if (cookie != null && user != null && user.get("cookie").equals(cookie)) {
             logger.debug("用户已登录");
             jsonObject.put("isLogined", "true");
-            jsonObject.put("user", "admin");
+            jsonObject.put("user", user.get("username"));
             JsonUtils.outJson(response, jsonObject.toString());
         } else {
             logger.debug("用户未登录");

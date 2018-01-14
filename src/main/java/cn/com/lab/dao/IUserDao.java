@@ -1,6 +1,5 @@
 package cn.com.lab.dao;
 
-import cn.com.lab.model.User;
 import cn.com.lab.model.UserLoginInfo;
 
 import java.util.List;

@@ -50,7 +50,7 @@
 
         <!-- 表名对应生成的实体 -->
         <!-- domainObjectName="Teacher" -->
-        <table tableName="exper_eq"
+        <table tableName="student"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="true"/>
